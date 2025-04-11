@@ -55,8 +55,33 @@ toDoListArr.forEach((action, i) => {
 // ○ отступ справа 10px
 // 3. Добавь их в контейнер #gallery
 // 4. После добавления, найди все .gallery-img с помощью
-// querySelectorAll() и измените им стиль: закругли углы (borderRadius =
-// '8px')
+// querySelectorAll() и измените им стиль: закругли углы (borderRadius ='8px')
+
+const gallery = document.querySelector("#gallery");
+
+const imgArr = [
+  { src: "https://picsum.photos/200", alt: "abc" },
+  { src: "https://picsum.photos/id/237/200/300", alt: "abc" },
+  { src: "https://picsum.photos/seed/picsum/200/300", alt: "abc" },
+  { src: "https://picsum.photos/200/300?grayscale", alt: "abc" },
+];
+
+imgArr.forEach((img) => {
+  const newImg = document.createElement("img");
+  newImg.src = img.src;
+  newImg.classList.add("gallery-img");
+
+  newImg.style.border = "2px solid #ccc";
+  newImg.style.width = "200px";
+  newImg.style.marginRight = "10px";
+
+  gallery.append(newImg);
+});
+
+const findGalleryImg = document.querySelectorAll(".gallery-img");
+findGalleryImg.forEach((img) => {
+  img.style.borderRadius = "8px";
+});
 
 // --------------------------------------------------------------------------------------------------
 
