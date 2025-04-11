@@ -70,7 +70,6 @@ imgArr.forEach((img) => {
   const newImg = document.createElement("img");
   newImg.src = img.src;
   newImg.classList.add("gallery-img");
-
   newImg.style.border = "2px solid #ccc";
   newImg.style.width = "200px";
   newImg.style.marginRight = "10px";
@@ -106,3 +105,35 @@ findGalleryImg.forEach((img) => {
 // ○ отступ снизу 15px,
 // ○ фоновый цвет: если роль "Developer", сделай фон светло-зелёным
 // 5. Добавь все карточки в #users
+
+const users = [
+  { name: "Алиса", age: 25, role: "Designer" },
+  { name: "Боб", age: 30, role: "Developer" },
+  { name: "Чарли", age: 28, role: "Manager" },
+];
+
+const usersContainer = document.querySelector("#users");
+
+users.forEach(({ name, age, role }) => {
+  const newUser = document.createElement("div");
+  const h3 = document.createElement("h3");
+  const p = document.createElement("p");
+  const span = document.createElement("span");
+
+  h3.textContent = name;
+  p.textContent = age;
+  span.textContent = role;
+
+  newUser.append(h3);
+  newUser.append(p);
+  newUser.append(span);
+
+  newUser.style.width = "200px";
+  newUser.style.marginBottom = "15px";
+
+  if (role === "Developer") {
+    newUser.style.backgroundColor = "green";
+  }
+
+  usersContainer.append(newUser);
+});
